@@ -1,20 +1,19 @@
-<div class="container">
-  <h1>URL Shortener</h1>
-  <%= form_with model: @link, remote: true, html: { novalidate: true } do |form| %>
-    <%= form.url_field :url, id: 'url', placeholder: 'Enter URL', required: true %>
-    <span class="error" aria-live="polite"></span>
-    <div class="submit">
-      <%= form.submit "SHORTEN", disabled: true %>
-    </div>
-  <% end %>
-  <div class="result hide">
-    <p>This is your new shortened URL</p>
-    <a href="" id="slug" target="_blank" rel="nonreferrer"></a>
-    <br />
-    <button class="copy" onclick="copyText()" title="Copy to Clipboard">
-      Copy
-    </button>
+
+<h1>URL Shortener</h1>
+<%= form_with model: @link, remote: true, html: { novalidate: true } do |form| %>
+  <%= form.url_field :url, id: 'url', placeholder: 'Enter URL', required: true %>
+  <span class="error" aria-live="polite"></span>
+  <div class="submit">
+    <%= form.submit "SHORTEN", disabled: true %>
   </div>
+<% end %>
+<div class="result hide">
+  <p>This is your new shortened URL</p>
+  <a href="" id="slug" target="_blank" rel="nonreferrer"></a>
+  <br />
+  <button class="copy" onclick="copyText()" title="Copy to Clipboard">
+    Copy
+  </button>
 </div>
 <script>
   window.onload = function () {

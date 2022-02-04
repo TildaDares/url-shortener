@@ -3,6 +3,8 @@ class LinksController < ApplicationController
     @link = Link.find_by(slug: params[:slug])
     if @link
       redirect_to @link.url
+    else
+      render 'errors/404', status: 404
     end
   end
 

@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   resources :links, only: [:show, :new, :create]
   root :to => "links#new", as: :home
   get ':slug' => 'links#show'
+  get '*path', :to => 'application#routing_error'
 end

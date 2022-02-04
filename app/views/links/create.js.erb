@@ -1,12 +1,26 @@
 function attachShortenedLink() {
   const urlError = document.querySelector("#url + span.error");
+  const slug = document.querySelector('#slug')
   urlError.textContent = "";
   urlError.className = "error";
   url.value = ""
-  let slug = document.querySelector('#slug')
   slug.href = "<%= @link.url %>"
   slug.textContent = "<%= @link.display_slug %>"
   document.querySelector(".result").classList.remove("hide");
+  document.querySelector(".copy").addEventListener('click', copyText)
+}
+
+// Copy Text to Clipboard
+function copyText() {
+  let slug = document.querySelector("#slug");
+  let copy = document.querySelector(".copy");
+  navigator.clipboard.writeText(slug.textContent);
+  copy.textContent = "Copied!";
+  copy.classList.add("copied");
+  setTimeout(() => {
+    copy.textContent = "Copy";
+    copy.classList.remove("copied");
+  }, 2000);
 }
 
 attachShortenedLink();

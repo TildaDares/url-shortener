@@ -1,0 +1,12 @@
+function attachShortenedLink() {
+  const urlError = document.querySelector("#url + span.error");
+  urlError.textContent = "";
+  urlError.className = "error";
+  url.value = ""
+  let slug = document.querySelector('#slug')
+  slug.href = "<%= @link.url %>"
+  slug.textContent = "<%= @link.display_slug %>"
+  document.querySelector(".result").classList.remove("hide");
+}
+
+attachShortenedLink();

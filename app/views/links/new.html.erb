@@ -1,0 +1,69 @@
+<div class="container">
+  <h1>URL Shortener</h1>
+  <%= form_with model: @link, remote: true, html: { novalidate: true } do |form| %>
+    <%= form.url_field :url, id: 'url', placeholder: 'Enter URL', required: true %>
+    <span class="error" aria-live="polite"></span>
+    <div class="submit">
+      <%= form.submit "SHORTEN", disabled: true %>
+    </div>
+  <% end %>
+  <div class="result hide">
+    <p>This is your new shortened URL</p>
+    <a href="" id="slug" target="_blank" rel="nonreferrer"></a>
+    <br />
+    <button class="copy" onclick="copyText()" title="Copy to Clipboard">
+      Copy
+    </button>
+  </div>
+</div>
+<script>
+  window.onload = function () {
+    // Form Validation
+    const url = document.querySelector("#url");
+    const urlError = document.querySelector("#url + span.error");
+    const form = document.querySelector("form");
+    const regExp = /[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/
+
+    form.addEventListener("submit", function (e) {
+      if (!url.checkValidity() || !regExp.test(url.value)) {
+        showError();
+        e.preventDefault();
+      }
+    });
+
+    url.addEventListener("input", handleURLInput);
+
+    function handleURLInput(e) {
+      if (url.checkValidity() || regExp.test(url.value)) {
+        urlError.textContent = "";
+        urlError.className = "error";
+        submitBtn.disabled = false
+      } else {
+        showError();
+      }
+    }
+
+    function showError() {
+      if (url.validity.valueMissing) {
+        urlError.textContent = "Url field cannot be blank";
+      } else if (!regExp.test(url.value)) {
+        urlError.textContent = "Invalid URL";
+      }
+      submitBtn.disabled = true
+      urlError.className = "error active";
+    }
+  };
+
+  // Copy Text to Clipboard
+  function copyText() {
+    let slug = document.querySelector("#slug");
+    let copy = document.querySelector(".copy");
+    navigator.clipboard.writeText(slug.textContent);
+    copy.textContent = "Copied!";
+    copy.classList.add("copied");
+    setTimeout(() => {
+      copy.textContent = "Copy";
+      copy.classList.remove("copied");
+    }, 2000);
+  }
+</script>

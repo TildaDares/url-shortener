@@ -1,0 +1,89 @@
+// Place all the styles related to the Links controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+body {
+  margin: 0;
+  background-color: #f7fafc;
+  font-family: monospace;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.container {
+  height: 100%;
+  margin: auto;
+  max-width: 756px;
+  padding: 40px;
+}
+h1 {
+  text-align: center;
+  font-size: 2.5rem;
+}
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  max-width: 720px;
+}
+input[type="url"] {
+  border-radius: 5px;
+  border: 1px solid #a0aec0;
+  padding: 9px 10px;
+  width: 100%;
+  height: 20px;
+}
+input[type="url"]:focus {
+  outline: none;
+  border: 1px solid #48bb78;
+}
+.submit {
+  text-align: center;
+  margin-top: 20px;
+}
+.submit input[type="submit"] {
+  background-color: #48bb78;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 1rem;
+  padding: 10px 10px;
+  border: none;
+}
+.submit input[type="submit"]:hover {
+  background-color: #2f855a;
+}
+.result {
+  width: 97%;
+  background-color: #fff;
+  margin-top: 40px;
+  padding: 30px 10px;
+  text-align: center;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  font-size: 1rem;
+  border-radius: 5px;
+  overflow-wrap: break-word;
+}
+.copy {
+  margin-top: 15px;
+  background-color: #f0fff4;
+  border-radius: 5px;
+  color: #48bb78;
+  font-size: 1rem;
+  padding: 10px 10px;
+  border: none;
+  cursor: pointer;
+}
+.copied {
+  background-color: #48bb78;
+  color: white;
+}
+.error {
+  align-self: start;
+  font-family: sans-serif;
+  color: red;
+  font-size: 0.8rem;
+  padding-top: 0.5rem;
+}
+.hide {
+  display: none;
+}

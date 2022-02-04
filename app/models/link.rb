@@ -9,6 +9,6 @@ class Link < ApplicationRecord
   end
 
   def display_slug
-    ENV['BASE_URL'] + self.slug
+    "http://localhost:3000/" + self.slug
   end
 end

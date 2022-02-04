@@ -1,10 +1,15 @@
 ## URL Shortener
 
-URL Shortener is an application like [bit.ly](https://bitly.com/) that shortens URLs.
+URL Shortener is a Ruby on Rails application like [bit.ly](https://bitly.com/) that shortens URLs.
 
 A demo of what the happy path looks like
 
-Invalid URL
+<img width="900" alt="Screenshot 2022-02-05 at 00 05 22" src="https://user-images.githubusercontent.com/63427719/152614928-f8d963da-cdba-4824-8114-7f0400423f24.png">
+</p>
+
+Invalid URL View
+
+<img width="900" alt="Screenshot 2022-02-05 at 00 05 10" src="https://user-images.githubusercontent.com/63427719/152615436-f91cd5f2-1835-4545-94db-b196dcf1d64c.png">
 
 ### Installation and Setup
 
